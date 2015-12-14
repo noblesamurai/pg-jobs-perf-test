@@ -1,6 +1,6 @@
 var jobs = require('pg-jobs')({ db: process.env.DATABASE_URL }),
     async = require('async'),
-    grand = require('grand');
+    uuid = require('uuid')
 
 var q = async.queue(function(task, callback) {
   jobs.create(task, null, callback);
@@ -8,16 +8,16 @@ var q = async.queue(function(task, callback) {
 
 for (var i = 0; i < process.env.NUM_JOBS; i++) {
   var payload = {
-    name: grand.name(),
-    locale: grand.locale(),
-    email: grand.emailAddress(),
+    name: uuid.v4(),
+    locale: uuid.v4(),
+    email: uuid.v4(),
     things: {
-      one: grand.sentence(20),
-      two: grand.sentence(20),
-      three: grand.sentence(30),
-      four: grand.sentence(100)
+      one: uuid.v4(),
+      two: uuid.v4(),
+      three: uuid.v4(),
+      four: uuid.v4()
     },
-    timezone: grand.timezone()
+    timezone: uuid.v4()
   };
 
   q.push(payload);

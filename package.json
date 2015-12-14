@@ -1,0 +1,16 @@
+{
+  "name": "pg-jobs-perf-test",
+  "version": "1.0.0",
+  "description": "Performance testing of pg-jobs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.5.0",
+    "grand": "^1.1.0",
+    "pg-jobs": "^4.3.1"
+  }
+}
